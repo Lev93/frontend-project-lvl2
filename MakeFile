@@ -1,11 +1,11 @@
-install: 
+install:
 		npm install
 
-start: 
+start:
 		npx babel-node src/bin/gendiff.js
 
-publish: 
+publish:
 		npm publish --dry-run
 
-lint: 
+lint:
 		npx eslint .
