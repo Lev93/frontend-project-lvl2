@@ -1,5 +1,5 @@
 {
-  "name": "frontend-project-lvl2",
+  "name": "gendiff",
   "version": "1.0.0",
   "description": "Утилита для поиска отличий в конфигурационных файлах",
   "main": "dist/index.js",

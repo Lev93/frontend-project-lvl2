@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/Lev93/frontend-project-lvl2.svg?branch=master)](https://travis-ci.org/Lev93/frontend-project-lvl2)
 
 **Установка**
-```$ npm link linay-gendiff```
+```$ npm link gendiff```
 
 **Вызов справки**
 ```$ gendiff --help```
