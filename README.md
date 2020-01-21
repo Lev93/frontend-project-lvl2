@@ -1,6 +1,8 @@
 # frontend-project-lvl2
 
 [![Build Status](https://travis-ci.org/Lev93/frontend-project-lvl2.svg?branch=master)](https://travis-ci.org/Lev93/frontend-project-lvl2)
+[![Maintainability](https://api.codeclimate.com/v1/badges/a9ecb23d906812737a76/maintainability)](https://codeclimate.com/github/Lev93/frontend-project-lvl2/maintainability)
+[![Test Coverage](https://api.codeclimate.com/v1/badges/a9ecb23d906812737a76/test_coverage)](https://codeclimate.com/github/Lev93/frontend-project-lvl2/test_coverage)
 
 **Установка**
 ```$ npm link gendiff```
