@@ -2,14 +2,19 @@ import commander from 'commander';
 import fs from 'fs';
 import path from 'path';
 import _ from 'lodash';
+import parser from './parsers';
+
+const getData = (file) => {
+  const filepath = path.resolve(file);
+  const format = path.extname(file);
+  const data = fs.readFileSync(filepath, 'utf8');
+
+  return parser(data, format);
+};
 
 const genDiff = (firstFile, secondFile) => {
-  const filepath1 = path.resolve(firstFile);
-  const filepath2 = path.resolve(secondFile);
-  const json1 = fs.readFileSync(filepath1, 'utf8');
-  const json2 = fs.readFileSync(filepath2, 'utf8');
-  const object1 = JSON.parse(json1);
-  const object2 = JSON.parse(json2);
+  const object1 = getData(firstFile);
+  const object2 = getData(secondFile);
   const keys = _.union(Object.keys(object1), Object.keys(object2));
 
   const func = (item) => {

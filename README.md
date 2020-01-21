@@ -15,3 +15,8 @@
 **вызов программы**
 ```$ gendiff <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/Q4Es1ffOH2lCdvUuLQzZ1mHuk.svg)](https://asciinema.org/a/Q4Es1ffOH2lCdvUuLQzZ1mHuk)
+### **Сравнение файлов в формате yaml**
+
+**вызов программы**
+```$ gendiff <firstConfig> <secondConfig>```
+[![asciicast](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF.svg)](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF)
