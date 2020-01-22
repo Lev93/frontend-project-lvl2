@@ -1,8 +1,9 @@
 import commander from 'commander';
 import fs from 'fs';
 import path from 'path';
-import _ from 'lodash';
 import parser from './parsers';
+import ast from './ast';
+import render from './render';
 
 const getData = (file) => {
   const filepath = path.resolve(file);
@@ -15,23 +16,8 @@ const getData = (file) => {
 const genDiff = (firstFile, secondFile) => {
   const object1 = getData(firstFile);
   const object2 = getData(secondFile);
-  const keys = _.union(Object.keys(object1), Object.keys(object2));
-
-  const func = (item) => {
-    if (object1[item] === object2[item]) {
-      return `    ${item}: ${object1[item]}\n`;
-    }
-    if (!_.has(object1, item) && _.has(object2, item)) {
-      return `  + ${item}: ${object2[item]}\n`;
-    }
-    if (_.has(object1, item) && !_.has(object2, item)) {
-      return `  - ${item}: ${object1[item]}\n`;
-    }
-    return `  + ${item}: ${object2[item]}\n  - ${item}: ${object1[item]}\n`;
-  };
-
-  const str = keys.map(func).join('');
-  return `\n{\n${str}}\n`;
+  const difference = ast(object1, object2);
+  return render(difference);
 };
 
 const program = () => {
@@ -46,3 +32,22 @@ const program = () => {
 
 export default genDiff;
 export { program };
+/*
+const keys = _.union(Object.keys(object1), Object.keys(object2));
+
+const func = (item) => {
+  if (object1[item] === object2[item]) {
+    return `    ${item}: ${object1[item]}\n`;
+  }
+  if (!_.has(object1, item) && _.has(object2, item)) {
+    return `  + ${item}: ${object2[item]}\n`;
+  }
+  if (_.has(object1, item) && !_.has(object2, item)) {
+    return `  - ${item}: ${object1[item]}\n`;
+  }
+  return `  + ${item}: ${object2[item]}\n  - ${item}: ${object1[item]}\n`;
+};
+
+const str = keys.map(func).join('');
+return `\n{\n${str}}\n`;
+*/

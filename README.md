@@ -10,18 +10,23 @@
 **Вызов справки**
 ```$ gendiff --help```
 
-### **Сравнение файлов в формате json**
+### **Плоское сравнение файлов в формате json**
 
 **вызов программы**
 ```$ gendiff <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/Q4Es1ffOH2lCdvUuLQzZ1mHuk.svg)](https://asciinema.org/a/Q4Es1ffOH2lCdvUuLQzZ1mHuk)
-### **Сравнение файлов в формате yaml**
+### **Плоское сравнение файлов в формате yaml**
 
 **вызов программы**
 ```$ gendiff <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF.svg)](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF)
-### **Сравнение файлов в формате ini**
+### **Плоское сравнение файлов в формате ini**
 
 **вызов программы**
 ```$ gendiff <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/nA0teo8pd0zWHXZtzyPDgdBkc.svg)](https://asciinema.org/a/nA0teo8pd0zWHXZtzyPDgdBkc)
+### **Рекурсивное сравнение файлов в формате json**
+
+**вызов программы**
+```$ gendiff <firstConfig> <secondConfig>```
+[![asciicast](https://asciinema.org/a/DCESfZ2PZdd5yYHymkT6yVnRE.svg)](https://asciinema.org/a/DCESfZ2PZdd5yYHymkT6yVnRE)
