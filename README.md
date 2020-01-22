@@ -20,3 +20,8 @@
 **вызов программы**
 ```$ gendiff <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF.svg)](https://asciinema.org/a/OQyAw5we3drX0iT6FnDqUiKhF)
+### **Сравнение файлов в формате ini**
+
+**вызов программы**
+```$ gendiff <firstConfig> <secondConfig>```
+[![asciicast](https://asciinema.org/a/nA0teo8pd0zWHXZtzyPDgdBkc.svg)](https://asciinema.org/a/nA0teo8pd0zWHXZtzyPDgdBkc)
