@@ -33,5 +33,5 @@ const inter = (difference, gapCount) => {
   return difference.map(func).join('\n');
 };
 
-const render = (difference) => `{\n${inter(difference, 1)}\n}`;
-export default render;
+const renderDefault = (difference) => `{\n${inter(difference, 1)}\n}`;
+export default renderDefault;
