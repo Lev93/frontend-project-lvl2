@@ -1,0 +1,98 @@
+[
+  {
+    "operator": "compare",
+    "key": "common",
+    "value": [
+      {
+        "operator": "equals",
+        "key": "setting1",
+        "value": "Value 1"
+      },
+      {
+        "operator": "delete",
+        "key": "setting2",
+        "value": "200"
+      },
+      {
+        "operator": "replace",
+        "key": "setting3",
+        "removedValue": true,
+        "currentValue": {
+          "key": "value"
+        }
+      },
+      {
+        "operator": "compare",
+        "key": "setting6",
+        "value": [
+          {
+            "operator": "equals",
+            "key": "key",
+            "value": "value"
+          },
+          {
+            "operator": "add",
+            "key": "ops",
+            "value": "vops"
+          }
+        ]
+      },
+      {
+        "operator": "add",
+        "key": "follow",
+        "value": false
+      },
+      {
+        "operator": "add",
+        "key": "setting4",
+        "value": "blah blah"
+      },
+      {
+        "operator": "add",
+        "key": "setting5",
+        "value": {
+          "key5": "value5"
+        }
+      }
+    ]
+  },
+  {
+    "operator": "compare",
+    "key": "group1",
+    "value": [
+      {
+        "operator": "replace",
+        "key": "baz",
+        "removedValue": "bas",
+        "currentValue": "bars"
+      },
+      {
+        "operator": "equals",
+        "key": "foo",
+        "value": "bar"
+      },
+      {
+        "operator": "replace",
+        "key": "nest",
+        "removedValue": {
+          "key": "value"
+        },
+        "currentValue": "str"
+      }
+    ]
+  },
+  {
+    "operator": "delete",
+    "key": "group2",
+    "value": {
+      "abc": "12345"
+    }
+  },
+  {
+    "operator": "add",
+    "key": "group3",
+    "value": {
+      "fee": "100500"
+    }
+  }
+]

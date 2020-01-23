@@ -35,3 +35,8 @@
 **вызов программы**
 ```$ gendiff --format plain <firstConfig> <secondConfig>```
 [![asciicast](https://asciinema.org/a/QuWCtxoZCLgDakSZJU3NMjcqe.svg)](https://asciinema.org/a/QuWCtxoZCLgDakSZJU3NMjcqe)
+### **Рекурсивное сравнение файлов в формате json формата json**
+
+**вызов программы**
+```$ gendiff --format json <firstConfig> <secondConfig>```
+[![asciicast](https://asciinema.org/a/JUHmm3PVcHE7dzWpGomBSleMA.svg)](https://asciinema.org/a/JUHmm3PVcHE7dzWpGomBSleMA)

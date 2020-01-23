@@ -10,8 +10,10 @@ const filepathBeforeIni = path.resolve(__dirname, '__fixtures__/before.ini');
 const filepathAfterIni = path.resolve(__dirname, '__fixtures__/after.ini');
 const filepathResultTree = path.resolve(__dirname, '__fixtures__/diff-tree.txt');
 const filepathResultPlain = path.resolve(__dirname, '__fixtures__/diff-plain.txt');
+const filepathResultJson = path.resolve(__dirname, '__fixtures__/diff-json.txt');
 const resultTree = fs.readFileSync(filepathResultTree, 'utf8');
 const resultPlain = fs.readFileSync(filepathResultPlain, 'utf8');
+const resultJson = fs.readFileSync(filepathResultJson, 'utf8');
 
 test.each([
   [filepathBeforeJson, filepathAfterJson],
@@ -27,4 +29,12 @@ test.each([
   [filepathBeforeIni, filepathAfterIni],
 ])('gendiff plain', (filepathBefore, filepathAfter) => {
   expect(genDiff(filepathBefore, filepathAfter, 'plain')).toBe(resultPlain);
+});
+
+test.each([
+  [filepathBeforeJson, filepathAfterJson],
+  [filepathBeforeYml, filepathAfterYml],
+  [filepathBeforeIni, filepathAfterIni],
+])('gendiff json', (filepathBefore, filepathAfter) => {
+  expect(genDiff(filepathBefore, filepathAfter, 'json')).toBe(resultJson);
 });
