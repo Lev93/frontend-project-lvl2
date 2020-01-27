@@ -7,5 +7,5 @@ const formatters = {
   plain: renderPlain,
   json: renderJson,
 };
-const render = (difference, format) => formatters[format](difference);
+const render = (getDifference, format) => formatters[format](getDifference);
 export default render;

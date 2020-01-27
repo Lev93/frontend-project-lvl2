@@ -8,18 +8,22 @@ const ast = (object1, object2) => {
     const value2 = object2[key];
 
     if (value1 instanceof Object && value2 instanceof Object) {
-      return ['compare', key, ast(value1, value2)];
+      return { operator: 'compare', key, currentValue: ast(value1, value2) };
     }
     if (_.has(object1, key) && !_.has(object2, key)) {
-      return ['delete', key, value1];
+      return { operator: 'delete', key, removedValue: value1 };
     }
     if (!_.has(object1, key) && _.has(object2, key)) {
-      return ['add', key, value2];
+      return { operator: 'add', key, currentValue: value2 };
     }
     if (value1 === value2) {
-      return ['equals', key, value1];
+      return {
+        operator: 'equals', key, currentValue: value1,
+      };
     }
-    return ['replace', key, value1, value2];
+    return {
+      operator: 'replace', key, removedValue: value1, currentValue: value2,
+    };
   };
 
   return keys.map(func);

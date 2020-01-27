@@ -1,37 +1,33 @@
-const convert = (item, operator, gap) => {
-  if (item instanceof Object && operator !== 'compare') {
-    const entries = Object.entries(item);
-    const func = ([key, value]) => `{\n${gap}      ${key}: ${value}\n${gap}  }`;
-    return entries.map(func);
-  }
+import flatten from 'lodash/flatten';
 
-  return item;
+const tab = '  ';
+const tabStep = 2;
+
+const convert = (item, gap) => {
+  if (!(item instanceof Object)) return item;
+
+  const func = ([key, value]) => `{\n${gap}${tab.repeat(3)}${key}: ${value}\n${gap}${tab}}`;
+  return Object.entries(item).map(func);
 };
 
-const inter = (difference, gapCount) => {
-  const func = ([operator, key, value1, value2 = null]) => {
-    const gap = '  '.repeat(gapCount);
-    const value = convert(value1, operator, gap);
-    const replacedValue = convert(value2, operator, gap);
+const inter = (diff, tabCount) => {
+  const func = ({
+    operator, key, removedValue = null, currentValue = null,
+  }) => {
+    const gap = tab.repeat(tabCount);
 
-    switch (operator) {
-      case 'compare':
-        return `${gap}  ${key}: {\n${inter(value, gapCount + 2)}\n${gap}  }`;
-      case 'equals':
-        return `${gap}  ${key}: ${value}`;
-      case 'delete':
-        return `${gap}- ${key}: ${value}`;
-      case 'add':
-        return `${gap}+ ${key}: ${value}`;
-      case 'replace':
-        return `${gap}+ ${key}: ${replacedValue}\n${gap}- ${key}: ${value}`;
-      default:
-        return false;
-    }
+    const lines = {
+      compare: () => `${gap}${tab}${key}: {\n${inter(currentValue, tabCount + tabStep)}\n${gap}${tab}}`,
+      equals: () => `${gap}${tab}${key}: ${convert(currentValue, gap)}`,
+      delete: () => `${gap}- ${key}: ${convert(removedValue, gap)}`,
+      add: () => `${gap}+ ${key}: ${convert(currentValue, gap)}`,
+      replace: () => [lines.add(), lines.delete()],
+    };
+
+    return lines[operator]();
   };
 
-  return difference.map(func).join('\n');
+  return flatten(diff.map(func)).join('\n');
 };
 
-const renderDefault = (difference) => `{\n${inter(difference, 1)}\n}`;
-export default renderDefault;
+export default (diff) => `{\n${inter(diff, 1)}\n}`;

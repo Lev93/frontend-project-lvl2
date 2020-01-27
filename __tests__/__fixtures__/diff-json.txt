@@ -2,16 +2,16 @@
   {
     "operator": "compare",
     "key": "common",
-    "value": [
+    "currentValue": [
       {
         "operator": "equals",
         "key": "setting1",
-        "value": "Value 1"
+        "currentValue": "Value 1"
       },
       {
         "operator": "delete",
         "key": "setting2",
-        "value": "200"
+        "removedValue": "200"
       },
       {
         "operator": "replace",
@@ -24,33 +24,33 @@
       {
         "operator": "compare",
         "key": "setting6",
-        "value": [
+        "currentValue": [
           {
             "operator": "equals",
             "key": "key",
-            "value": "value"
+            "currentValue": "value"
           },
           {
             "operator": "add",
             "key": "ops",
-            "value": "vops"
+            "currentValue": "vops"
           }
         ]
       },
       {
         "operator": "add",
         "key": "follow",
-        "value": false
+        "currentValue": false
       },
       {
         "operator": "add",
         "key": "setting4",
-        "value": "blah blah"
+        "currentValue": "blah blah"
       },
       {
         "operator": "add",
         "key": "setting5",
-        "value": {
+        "currentValue": {
           "key5": "value5"
         }
       }
@@ -59,7 +59,7 @@
   {
     "operator": "compare",
     "key": "group1",
-    "value": [
+    "currentValue": [
       {
         "operator": "replace",
         "key": "baz",
@@ -69,7 +69,7 @@
       {
         "operator": "equals",
         "key": "foo",
-        "value": "bar"
+        "currentValue": "bar"
       },
       {
         "operator": "replace",
@@ -84,14 +84,14 @@
   {
     "operator": "delete",
     "key": "group2",
-    "value": {
+    "removedValue": {
       "abc": "12345"
     }
   },
   {
     "operator": "add",
     "key": "group3",
-    "value": {
+    "currentValue": {
       "fee": "100500"
     }
   }

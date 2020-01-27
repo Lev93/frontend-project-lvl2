@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { program } from '../index';
+import program from '../program';
 
 program();

@@ -1,39 +1,29 @@
-const convert = (item, operator) => {
-  if (typeof item === 'string') {
-    return `'${item}'`;
-  }
-  if (item instanceof Object && operator !== 'compare') {
-    return '[complex value]';
-  }
-
+const convert = (item) => {
+  if (typeof item === 'string') return `'${item}'`;
+  if (item instanceof Object) return '[complex value]';
   return item;
 };
 
 const buildPath = (dir, base) => [dir, base].filter((i) => i !== '').join('.');
 
-const inter = (difference, path) => {
-  const func = ([operator, key, value1, value2 = null]) => {
-    const value = convert(value1, operator);
-    const replacedValue = convert(value2, operator);
+const inter = (diff, path = '') => {
+  const func = ({
+    operator, key, removedValue = null, currentValue = null,
+  }) => {
+    const fullPath = buildPath(path, key);
 
-    switch (operator) {
-      case 'compare':
-        return inter(value, buildPath(path, key));
-      case 'equals':
-        return '';
-      case 'delete':
-        return `Property '${buildPath(path, key)}' was removed`;
-      case 'add':
-        return `Property '${buildPath(path, key)}' was added with value: ${value}`;
-      case 'replace':
-        return `Property '${buildPath(path, key)}' was updated. From ${value} to ${replacedValue}`;
-      default:
-        return false;
-    }
+    const lines = {
+      compare: () => inter(currentValue, fullPath),
+      equals: () => '',
+      delete: () => `Property '${fullPath}' was removed`,
+      add: () => `Property '${fullPath}' was added with value: ${convert(currentValue)}`,
+      replace: () => `Property '${fullPath}' was updated. From ${convert(removedValue)} to ${convert(currentValue)}`,
+    };
+
+    return lines[operator]();
   };
 
-  return difference.map(func).filter((item) => item !== '').join('\n');
+  return diff.map(func).filter((item) => item !== '').join('\n');
 };
 
-const renderPlain = (difference) => inter(difference, '');
-export default renderPlain;
+export default (diff) => inter(diff);
