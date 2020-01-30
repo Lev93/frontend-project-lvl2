@@ -5,12 +5,12 @@ import genDiff from '../src';
 const inputFormats = ['json', 'yml', 'ini'];
 
 const getFilepaths = (formats) => formats.map((item) => [
-  path.resolve(__dirname, `__fixtures__/before.${item}`),
-  path.resolve(__dirname, `__fixtures__/after.${item}`),
+  path.join(__dirname, '__fixtures__', `before.${item}`),
+  path.join(__dirname, '__fixtures__', `after.${item}`),
 ]);
 
 const getResult = (otputFormat) => {
-  const resultPath = path.resolve(__dirname, `__fixtures__/diff-${otputFormat}.txt`);
+  const resultPath = path.join(__dirname, '__fixtures__', `diff-${otputFormat}.txt`);
   return fs.readFileSync(resultPath, 'utf8');
 };
 

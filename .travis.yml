@@ -15,5 +15,5 @@ after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT 
 
 script:
-  - npx eslint .
-  - npx jest --coverage
+  - make lint
+  - make test

@@ -1,97 +1,97 @@
 [
   {
-    "operator": "compare",
+    "type": "compared",
     "key": "common",
-    "currentValue": [
+    "newValue": [
       {
-        "operator": "equals",
+        "type": "equal",
         "key": "setting1",
-        "currentValue": "Value 1"
+        "newValue": "Value 1"
       },
       {
-        "operator": "delete",
+        "type": "removed",
         "key": "setting2",
-        "removedValue": "200"
+        "oldValue": "200"
       },
       {
-        "operator": "replace",
+        "type": "replaced",
         "key": "setting3",
-        "removedValue": true,
-        "currentValue": {
+        "oldValue": true,
+        "newValue": {
           "key": "value"
         }
       },
       {
-        "operator": "compare",
+        "type": "compared",
         "key": "setting6",
-        "currentValue": [
+        "newValue": [
           {
-            "operator": "equals",
+            "type": "equal",
             "key": "key",
-            "currentValue": "value"
+            "newValue": "value"
           },
           {
-            "operator": "add",
+            "type": "added",
             "key": "ops",
-            "currentValue": "vops"
+            "newValue": "vops"
           }
         ]
       },
       {
-        "operator": "add",
+        "type": "added",
         "key": "follow",
-        "currentValue": false
+        "newValue": false
       },
       {
-        "operator": "add",
+        "type": "added",
         "key": "setting4",
-        "currentValue": "blah blah"
+        "newValue": "blah blah"
       },
       {
-        "operator": "add",
+        "type": "added",
         "key": "setting5",
-        "currentValue": {
+        "newValue": {
           "key5": "value5"
         }
       }
     ]
   },
   {
-    "operator": "compare",
+    "type": "compared",
     "key": "group1",
-    "currentValue": [
+    "newValue": [
       {
-        "operator": "replace",
+        "type": "replaced",
         "key": "baz",
-        "removedValue": "bas",
-        "currentValue": "bars"
+        "oldValue": "bas",
+        "newValue": "bars"
       },
       {
-        "operator": "equals",
+        "type": "equal",
         "key": "foo",
-        "currentValue": "bar"
+        "newValue": "bar"
       },
       {
-        "operator": "replace",
+        "type": "replaced",
         "key": "nest",
-        "removedValue": {
+        "oldValue": {
           "key": "value"
         },
-        "currentValue": "str"
+        "newValue": "str"
       }
     ]
   },
   {
-    "operator": "delete",
+    "type": "removed",
     "key": "group2",
-    "removedValue": {
+    "oldValue": {
       "abc": "12345"
     }
   },
   {
-    "operator": "add",
+    "type": "added",
     "key": "group3",
-    "currentValue": {
+    "newValue": {
       "fee": "100500"
     }
   }
