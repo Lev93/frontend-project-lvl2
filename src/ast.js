@@ -22,7 +22,7 @@ const ast = (object1, object2) => {
       };
     }
     return {
-      type: 'replaced', key, oldValue: value1, newValue: value2,
+      type: 'updated', key, oldValue: value1, newValue: value2,
     };
   };
 

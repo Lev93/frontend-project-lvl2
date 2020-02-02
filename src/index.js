@@ -6,10 +6,10 @@ import render from './formatters/index';
 
 const getFileContents = (file) => {
   const filepath = path.resolve(file);
-  const typeOfData = path.extname(file);
+  const fileExtension = path.extname(file);
   const data = fs.readFileSync(filepath, 'utf8');
 
-  return parser(data, typeOfData);
+  return parser(data, fileExtension);
 };
 
 const genDiff = (firstFile, secondFile, format) => {

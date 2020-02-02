@@ -14,7 +14,7 @@
         "oldValue": "200"
       },
       {
-        "type": "replaced",
+        "type": "updated",
         "key": "setting3",
         "oldValue": true,
         "newValue": {
@@ -61,7 +61,7 @@
     "key": "group1",
     "newValue": [
       {
-        "type": "replaced",
+        "type": "updated",
         "key": "baz",
         "oldValue": "bas",
         "newValue": "bars"
@@ -72,7 +72,7 @@
         "newValue": "bar"
       },
       {
-        "type": "replaced",
+        "type": "updated",
         "key": "nest",
         "oldValue": {
           "key": "value"
