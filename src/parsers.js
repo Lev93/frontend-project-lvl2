@@ -7,6 +7,6 @@ const parserObject = {
   '.ini': ini.parse,
 };
 
-const parser = (data, fileExtension) => parserObject[fileExtension](data);
+const parser = (data, type) => parserObject[type](data);
 
 export default parser;
