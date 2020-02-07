@@ -1,22 +1,22 @@
 import fs from 'fs';
 import path from 'path';
-import parser from './parsers';
+import parse from './parsers';
 import ast from './ast';
-import render from './formatters/index';
+import render from './formatters';
 
-const getContents = (file) => {
-  const filepath = path.resolve(file);
-  const extension = path.extname(file);
+const getData = (config) => {
+  const filepath = path.resolve(config);
+  const type = path.extname(config).slice(1);
   const data = fs.readFileSync(filepath, 'utf8');
 
-  return parser(data, extension);
+  return parse(data, type);
 };
 
-const genDiff = (firstFile, secondFile, format) => {
-  const object1 = getContents(firstFile);
-  const object2 = getContents(secondFile);
-  const getDifference = ast(object1, object2);
-  return render(getDifference, format);
+const genDiff = (firstConfig, secondConfig, format) => {
+  const data1 = getData(firstConfig);
+  const data2 = getData(secondConfig);
+  const difference = ast(data1, data2);
+  return render(difference, format);
 };
 
 export default genDiff;
